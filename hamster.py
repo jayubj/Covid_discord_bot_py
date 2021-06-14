@@ -16,7 +16,21 @@ async def on_ready():
     print('Connected to bot: {}'.format(client.user.name))
     print('Bot ID: {}'.format(client.user.id))
 
-    
+@client.command()
+async def help(ctx):
+    await ctx.send("!thailand ")
+    await ctx.send("!covid")
+    await ctx.send("!vaccine")
+    await ctx.send("!world")
+    await ctx.send("!all")
+    await ctx.send("!world")
+    await ctx.send("!cat")
+    await ctx.send("!dog")
+    await ctx.send("!panda")
+    await ctx.send("!redpanda")
+    await ctx.send("!anime")
+
+
 @client.command()
 async def thailand(ctx):
     r = requests.get(url = 'https://disease.sh/v3/covid-19/countries/Thailand') 
@@ -163,5 +177,16 @@ async def panda(ctx):
    embed.set_footer(text="beta test bot code by Isabella#3446") 
    await ctx.send(embed=embed)
 
+@client.command()
+async def anime(ctx):
+    r = requests.get(url = 'https://animechan.vercel.app/api/random')
+    response = r.json()
+    print(response)
+    embedVar = discord.Embed(color=0x00ff00)
+    embedVar.add_field(name=":mega:ชื่ออนิเมะ", value=response["anime"], inline=True)
+    embedVar.add_field(name=":bust_in_silhouette:ตัวละครภายในเรื่อง", value=response["character"], inline=False)
+    embedVar.add_field(name=":speaking_head:คำพูดติดปากจากในเรื่อง", value=response["quote"], inline=False)
+    embedVar.set_footer(text="beta test bot code by Nong P#8499")
+    await ctx.send(embed=embedVar)
 
 client.run(TOKEN)
