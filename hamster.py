@@ -5,7 +5,7 @@ from datetime import datetime, timedelta
 import aiohttp 
 import os 
 
-TOKEN = 'ODQ1Njg2NTU3NTUyODAzOTAw.YKkk-w.KCRGzCMGtysPNGC_VpL7yiTlxCk'
+TOKEN = '' ## ur token
 
 client = commands.Bot(command_prefix='!')
 
